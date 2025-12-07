@@ -690,6 +690,18 @@ section {
     line-height: 1.6;
 }
 
+.contact-item p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-item p a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 /* Footer */
 .footer {
     background: var(--dark-bg);
