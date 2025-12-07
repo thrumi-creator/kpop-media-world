@@ -439,6 +439,14 @@ section {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .album-icon {
@@ -857,6 +865,14 @@ section {
     font-size: 80px;
     flex-shrink: 0;
     box-shadow: 0 8px 24px rgba(233, 30, 99, 0.2);
+    overflow: hidden;
+}
+
+.album-cover-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .album-info h5 {
