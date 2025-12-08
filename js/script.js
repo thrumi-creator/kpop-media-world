@@ -73,30 +73,61 @@ animateElements.forEach(el => {
     observer.observe(el);
 });
 
-// Image lazy loading
+// Image lazy loading with improved error handling
 const images = document.querySelectorAll('img');
 const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const img = entry.target;
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.5s ease';
             
-            img.onload = () => {
+            // Set initial transition
+            if (!img.style.transition) {
+                img.style.transition = 'opacity 0.5s ease';
+            }
+            
+            // Handle image load
+            const loadImage = () => {
                 img.style.opacity = '1';
             };
             
+            // Handle image error
+            const handleError = () => {
+                img.style.opacity = '0.7';
+                console.warn('Failed to load image:', img.src);
+            };
+            
+            img.onload = loadImage;
+            img.onerror = handleError;
+            
+            // Load image from data-src or src
             if (img.dataset.src) {
                 img.src = img.dataset.src;
+            } else if (img.src) {
+                // Check if image is already loaded
+                if (img.complete && img.naturalHeight !== 0) {
+                    loadImage();
+                } else if (img.complete && img.naturalHeight === 0) {
+                    handleError();
+                }
             }
             
             imageObserver.unobserve(img);
         }
     });
-});
+}, { threshold: 0.01 });
 
 images.forEach(img => {
+    img.style.opacity = '0';
     imageObserver.observe(img);
+});
+
+// Ensure all images are visible on page load
+window.addEventListener('load', () => {
+    images.forEach(img => {
+        if (img.complete && img.naturalHeight !== 0) {
+            img.style.opacity = '1';
+        }
+    });
 });
 
 // Active nav link on scroll
