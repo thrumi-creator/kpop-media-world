@@ -1184,3 +1184,114 @@ section {
         padding: 30px 20px;
     }
 }
+
+/* History Section Styles */
+.history-section {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.history-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.history-timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.history-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.history-item:nth-child(odd) {
+    margin-left: 0;
+    margin-right: 50%;
+    text-align: right;
+    padding-right: 40px;
+}
+
+.history-item:nth-child(even) {
+    margin-left: 50%;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.history-year {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.history-content {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.history-content p {
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.history-content p:first-child {
+    margin-top: 0;
+}
+
+.history-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline dot */
+.history-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .history-timeline::before {
+        left: 20px;
+    }
+    
+    .history-item:nth-child(odd),
+    .history-item:nth-child(even) {
+        margin-left: 60px;
+        margin-right: 0;
+        text-align: left;
+        padding-left: 40px;
+        padding-right: 0;
+    }
+    
+    .history-item::before {
+        left: 20px;
+    }
+}
