@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 홈페이지 -->
+    <url>
+        <loc>https://kpopmedia.co.kr</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- About Us 페이지 -->
+    <url>
+        <loc>https://kpopmedia.co.kr#about</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Our Artists 페이지 -->
+    <url>
+        <loc>https://kpopmedia.co.kr#artists</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Business Scope 페이지 -->
+    <url>
+        <loc>https://kpopmedia.co.kr#business</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- WITCHX 아티스트 -->
+    <url>
+        <loc>https://kpopmedia.co.kr#artists</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- MEGAMAX 아티스트 -->
+    <url>
+        <loc>https://kpopmedia.co.kr#artists</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
