@@ -202,7 +202,7 @@ body::before {
     animation: neonLines 8s linear infinite;
 }
 
-.hero-overlay {
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -217,6 +217,26 @@ body::before {
     text-align: center;
     color: var(--text-primary);
     animation: fadeInUp 1s ease;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-subtitle-box {
+    margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 2px solid var(--neon-cyan);
+    padding: 0.8rem 2rem;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
 }
 
 .hero-title {
@@ -224,7 +244,7 @@ body::before {
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
     color: var(--text-primary);
     text-shadow: 
@@ -234,19 +254,14 @@ body::before {
     line-height: 1.1;
 }
 
-.hero-title span {
+.hero-title .media-span {
     color: var(--neon-pink);
     text-shadow: 0 0 20px var(--neon-pink);
 }
 
-.hero-subtitle {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-    color: var(--neon-cyan);
-    text-shadow: 0 0 10px var(--neon-cyan);
-    letter-spacing: 2px;
+.hero-title .world-span {
+    color: var(--text-primary);
+    text-shadow: 0 0 20px var(--neon-cyan);
 }
 
 .hero-description {
@@ -258,17 +273,18 @@ body::before {
     line-height: 1.8;
 }
 
-.hero-tags {
+.hero-buttons {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 3rem;
 }
 
-.tag {
+.hero-button {
     padding: 0.8rem 2rem;
     background: transparent;
-    border: 2px solid var(--neon-cyan);
+    border: 2px dashed var(--neon-cyan);
     border-radius: 0;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
@@ -282,21 +298,27 @@ body::before {
     color: var(--text-primary);
 }
 
-.tag:hover {
-    background: var(--neon-cyan);
-    color: var(--bg-primary);
-    box-shadow: 0 0 20px var(--neon-cyan), inset 0 0 20px rgba(0, 255, 255, 0.2);
-    transform: translateY(-3px);
+.hero-button:nth-child(1) {
+    border-color: var(--neon-cyan);
 }
 
-.tag:nth-child(2) {
+.hero-button:nth-child(2) {
     border-color: var(--neon-pink);
     box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
 }
 
-.tag:nth-child(2):hover {
-    background: var(--neon-pink);
-    box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px rgba(255, 20, 147, 0.2);
+.hero-button:nth-child(3) {
+    border-color: var(--neon-cyan);
+}
+
+.hero-button:nth-child(4) {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px currentColor;
 }
 
 .scroll-indicator {
@@ -307,7 +329,7 @@ body::before {
     z-index: 2;
 }
 
-.scroll-indicator span {
+.scroll-dot {
     display: block;
     width: 30px;
     height: 50px;
@@ -317,7 +339,7 @@ body::before {
     box-shadow: 0 0 10px var(--neon-cyan);
 }
 
-.scroll-indicator span::before {
+.scroll-dot::before {
     content: '';
     position: absolute;
     top: 10px;
