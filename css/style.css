@@ -1,4 +1,7 @@
-/* Cyberpunk Neon Theme - K-POP MEDIA WORLD */
+/* K-POP MEDIA WORLD - Modern Cyberpunk Neon Design */
+/* Font: Orbitron (headings), Rajdhani (body) */
+/* Color Space: OKLCH */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +9,14 @@
 }
 
 :root {
+    --bg-primary: oklch(0.1 0.01 280);
+    --bg-secondary: oklch(0.15 0.01 280);
+    --text-primary: oklch(0.95 0.01 280);
+    --text-secondary: oklch(0.7 0.01 280);
     --neon-pink: #FF1493;
     --neon-cyan: #00FFFF;
     --neon-purple: #DA70D6;
     --neon-green: #39FF14;
-    --dark-bg: #0a0a0a;
-    --dark-secondary: #1a1a2e;
-    --text-light: #ffffff;
-    --text-gray: #b0b0b0;
-    --grid-color: rgba(0, 255, 255, 0.1);
 }
 
 html {
@@ -22,15 +24,17 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+    font-family: 'Rajdhani', 'Noto Sans KR', ui-sans-serif, system-ui, sans-serif;
     line-height: 1.6;
-    color: var(--text-light);
-    background: var(--dark-bg);
+    color: var(--text-primary);
+    background: var(--bg-primary);
     overflow-x: hidden;
     position: relative;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-/* Animated Background */
+/* Background Pattern Animation */
 body::before {
     content: '';
     position: fixed;
@@ -55,6 +59,16 @@ body::before {
         );
     pointer-events: none;
     z-index: 0;
+    animation: neonLines 8s linear infinite;
+}
+
+@keyframes neonLines {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .container {
@@ -86,12 +100,13 @@ body::before {
 }
 
 .nav-brand h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: 3px;
-    color: var(--text-light);
+    color: var(--text-primary);
     text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-cyan);
+    text-transform: uppercase;
 }
 
 .nav-brand h1 span {
@@ -100,10 +115,12 @@ body::before {
 }
 
 .brand-subtitle {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.7rem;
     color: var(--neon-cyan);
     margin-top: -5px;
     text-shadow: 0 0 5px var(--neon-cyan);
+    letter-spacing: 2px;
 }
 
 .nav-menu {
@@ -113,7 +130,8 @@ body::before {
 }
 
 .nav-link {
-    color: var(--text-light);
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -162,7 +180,7 @@ body::before {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     position: relative;
     display: flex;
     align-items: center;
@@ -184,15 +202,6 @@ body::before {
     animation: neonLines 8s linear infinite;
 }
 
-@keyframes neonLines {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -206,18 +215,18 @@ body::before {
     position: relative;
     z-index: 2;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-primary);
     animation: fadeInUp 1s ease;
 }
 
 .hero-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 8px;
     margin-bottom: 1rem;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: var(--text-primary);
     text-shadow: 
         0 0 20px var(--neon-pink),
         0 0 40px var(--neon-cyan),
@@ -231,12 +240,22 @@ body::before {
 }
 
 .hero-subtitle {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.3rem;
     font-weight: 300;
     margin-bottom: 2rem;
     color: var(--neon-cyan);
     text-shadow: 0 0 10px var(--neon-cyan);
     letter-spacing: 2px;
+}
+
+.hero-description {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin: 2rem auto;
+    max-width: 600px;
+    line-height: 1.8;
 }
 
 .hero-tags {
@@ -251,6 +270,7 @@ body::before {
     background: transparent;
     border: 2px solid var(--neon-cyan);
     border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -259,11 +279,12 @@ body::before {
     position: relative;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: var(--text-primary);
 }
 
 .tag:hover {
     background: var(--neon-cyan);
-    color: var(--dark-bg);
+    color: var(--bg-primary);
     box-shadow: 0 0 20px var(--neon-cyan), inset 0 0 20px rgba(0, 255, 255, 0.2);
     transform: translateY(-3px);
 }
@@ -332,7 +353,7 @@ body::before {
     }
 }
 
-/* Section Styles */
+/* Sections */
 section {
     padding: 5rem 0;
     position: relative;
@@ -345,11 +366,11 @@ section {
 }
 
 .section-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    color: var(--text-light);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 4px;
     text-shadow: 0 0 20px var(--neon-pink);
@@ -365,6 +386,7 @@ section {
 }
 
 .section-subtitle {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.1rem;
     color: var(--neon-cyan);
     text-shadow: 0 0 5px var(--neon-cyan);
@@ -372,7 +394,7 @@ section {
 
 /* About Section */
 .about {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .about-content {
@@ -381,55 +403,21 @@ section {
 }
 
 .about-info h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: var(--neon-pink);
     text-shadow: 0 0 10px var(--neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .about-description {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-gray);
-}
-
-.company-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.detail-item {
-    padding: 1.5rem;
-    background: rgba(0, 255, 255, 0.05);
-    border-radius: 0;
-    border-left: 4px solid var(--neon-cyan);
-    border-top: 2px solid var(--neon-pink);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.detail-item:hover {
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), 0 0 15px rgba(255, 20, 147, 0.1);
-    transform: translateY(-5px);
-}
-
-.detail-item h4 {
-    font-size: 0.9rem;
-    color: var(--neon-cyan);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 5px var(--neon-cyan);
-}
-
-.detail-item p {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 /* MVV Section */
@@ -454,14 +442,27 @@ section {
 }
 
 .mvv-section h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--neon-pink);
     text-shadow: 0 0 10px var(--neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.mvv-section h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 .mvv-section p {
-    color: var(--text-gray);
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -491,14 +492,18 @@ section {
 }
 
 .value-card h4 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--neon-pink);
     text-shadow: 0 0 10px var(--neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .value-card p {
-    color: var(--text-gray);
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -509,6 +514,7 @@ section {
 }
 
 .history-title {
+    font-family: 'Orbitron', sans-serif;
     font-size: 28px;
     font-weight: 700;
     color: var(--neon-cyan);
@@ -555,6 +561,7 @@ section {
 }
 
 .history-year {
+    font-family: 'Orbitron', sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: var(--neon-pink);
@@ -572,7 +579,8 @@ section {
 }
 
 .history-content p {
-    color: var(--text-light);
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-primary);
     font-size: 15px;
     line-height: 1.6;
     margin: 5px 0;
@@ -586,7 +594,7 @@ section {
     transform: translateX(-50%);
     width: 16px;
     height: 16px;
-    background: var(--dark-bg);
+    background: var(--bg-primary);
     border: 3px solid var(--neon-pink);
     border-radius: 50%;
     z-index: 1;
@@ -595,7 +603,7 @@ section {
 
 /* Artists Section */
 .artists {
-    background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-bg) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 .artist-group {
@@ -628,17 +636,18 @@ section {
 }
 
 .artist-intro h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: var(--text-primary);
     text-shadow: 0 0 15px var(--neon-pink);
 }
 
 .debut-date {
+    font-family: 'Rajdhani', sans-serif;
     color: var(--neon-cyan);
     font-weight: 600;
     margin-bottom: 1rem;
@@ -646,14 +655,16 @@ section {
 }
 
 .artist-description {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-gray);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
 .official-link {
     display: inline-block;
+    font-family: 'Rajdhani', sans-serif;
     color: var(--neon-pink);
     text-decoration: none;
     font-weight: 600;
@@ -669,224 +680,9 @@ section {
     transform: translateX(5px);
 }
 
-.coming-soon {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--neon-purple);
-    margin-top: 1rem;
-    text-shadow: 0 0 10px var(--neon-purple);
-}
-
-/* Discography */
-.discography {
-    margin-bottom: 3rem;
-}
-
-.discography h4,
-.members h4,
-.group-photos h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--neon-cyan);
-    border-bottom: 2px solid var(--neon-pink);
-    padding-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px var(--neon-cyan);
-}
-
-.albums {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.album-card {
-    background: rgba(255, 20, 147, 0.05);
-    border-radius: 0;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid var(--neon-pink);
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.1);
-}
-
-.album-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(255, 20, 147, 0.2), 0 0 15px rgba(0, 255, 255, 0.1);
-    border-color: var(--neon-cyan);
-    background: rgba(255, 20, 147, 0.1);
-}
-
-.album-cover {
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
-}
-
-.album-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-}
-
-.album-icon {
-    font-size: 3rem;
-}
-
-.album-card h5 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
-    text-transform: uppercase;
-}
-
-.album-type {
-    font-size: 0.9rem;
-    color: var(--neon-cyan);
-    margin-bottom: 0.3rem;
-    text-shadow: 0 0 3px var(--neon-cyan);
-}
-
-.release-date {
-    font-size: 0.85rem;
-    color: var(--neon-pink);
-    font-weight: 600;
-    text-shadow: 0 0 3px var(--neon-pink);
-}
-
-/* Members */
-.members {
-    margin-bottom: 3rem;
-}
-
-.member-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.member-card {
-    background: rgba(0, 255, 255, 0.05);
-    border-radius: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 2px solid var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-}
-
-.member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), 0 0 15px rgba(255, 20, 147, 0.1);
-    border-color: var(--neon-pink);
-}
-
-.member-image {
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
-}
-
-.member-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.member-card:hover .member-image img {
-    transform: scale(1.05);
-}
-
-.member-info {
-    padding: 1.5rem;
-    background: var(--dark-secondary);
-}
-
-.member-info h5 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--neon-pink);
-    text-shadow: 0 0 5px var(--neon-pink);
-    text-transform: uppercase;
-}
-
-.member-name-kr {
-    font-size: 0.9rem;
-    color: var(--neon-cyan);
-    font-weight: 400;
-    text-shadow: 0 0 3px var(--neon-cyan);
-}
-
-.member-role {
-    color: var(--neon-cyan);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    text-shadow: 0 0 5px var(--neon-cyan);
-}
-
-.member-details {
-    list-style: none;
-    font-size: 0.9rem;
-}
-
-.member-details li {
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-    color: var(--text-light);
-}
-
-.member-details li:last-child {
-    border-bottom: none;
-}
-
-.member-details strong {
-    color: var(--neon-cyan);
-    font-weight: 600;
-    text-shadow: 0 0 3px var(--neon-cyan);
-}
-
-/* Group Photos */
-.group-photos {
-    margin-top: 3rem;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.group-photo {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-}
-
-.group-photo:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), 0 0 15px rgba(255, 20, 147, 0.1);
-    border-color: var(--neon-pink);
-}
-
 /* Business Section */
 .business {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .business-areas {
@@ -919,6 +715,7 @@ section {
 }
 
 .business-card h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--neon-pink);
@@ -928,7 +725,8 @@ section {
 }
 
 .business-card p {
-    color: var(--text-gray);
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -938,6 +736,7 @@ section {
 }
 
 .main-business h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -957,7 +756,7 @@ section {
     background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(0, 255, 255, 0.05));
     padding: 2rem;
     border-radius: 0;
-    color: var(--text-light);
+    color: var(--text-primary);
     transition: all 0.3s ease;
     border: 2px solid var(--neon-pink);
     box-shadow: 0 0 15px rgba(255, 20, 147, 0.1);
@@ -971,6 +770,7 @@ section {
 }
 
 .main-business-item h4 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 1rem;
     color: var(--neon-pink);
@@ -980,15 +780,16 @@ section {
 }
 
 .main-business-item p {
+    font-family: 'Rajdhani', sans-serif;
     opacity: 0.95;
     line-height: 1.6;
-    color: var(--text-gray);
+    color: var(--text-secondary);
 }
 
 /* Footer */
 .footer {
-    background: var(--dark-bg);
-    color: var(--text-light);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     padding: 3rem 0 2rem;
     border-top: 2px solid var(--neon-cyan);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
@@ -999,16 +800,18 @@ section {
 }
 
 .footer-brand h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
-    color: var(--text-light);
+    color: var(--text-primary);
     text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-cyan);
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .footer-brand p {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.9rem;
     opacity: 0.7;
     margin-bottom: 2rem;
@@ -1017,10 +820,11 @@ section {
 }
 
 .footer-info p {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 0.5rem;
-    color: var(--text-gray);
+    color: var(--text-secondary);
 }
 
 .copyright {
@@ -1028,6 +832,7 @@ section {
     padding-top: 2rem;
     border-top: 1px solid rgba(0, 255, 255, 0.2);
     opacity: 0.6;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 /* Responsive Design */
@@ -1079,18 +884,6 @@ section {
         font-size: 2rem;
     }
 
-    .member-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .albums {
-        grid-template-columns: 1fr;
-    }
-
-    .photo-grid {
-        grid-template-columns: 1fr;
-    }
-
     .history-timeline::before {
         left: 20px;
     }
@@ -1136,3 +929,6 @@ section {
         padding: 1.5rem;
     }
 }
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
